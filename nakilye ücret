@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Yakit Ucreti Hesaplama</title>
+    <style>
+        /* Tüm metinlerin yazı boyutunu artırın */
+        * {
+            font-size: 85px; /* İstediğiniz boyutu burada ayarlayabilirsiniz */
+        }
+
+        /* Hesapla düğmesinin boyutunu artırın */
+        button {
+            padding: 20px 50px; /* Düğmenin boyutunu ayarlayabilirsiniz */
+        }
+    </style>
+</head>
+<body>
+    <h1>Yakit Ucreti Hesaplama</h1>
+
+    <label for="km">Kilometre Miktar:</label>
+    <input type="number" id="km" placeholder="Kilometre" step="0.01"><br>
+
+    <label for="yakitUcreti">Yakit Ucreti (TL/km):</label>
+    <input type="number" id="yakitUcreti" placeholder="Yakit Ucreti" step="0.01"><br>
+
+    <button onclick="hesapla()">Hesapla</button><br>
+
+    <h2>Sonuc:</h2>
+    <p id="sonuc"></p>
+
+    <script>
+        function hesapla() {
+            var km = parseFloat(document.getElementById("km").value);
+            var yakitUcreti = parseFloat(document.getElementById("yakitUcreti").value);
+            var sonuc = (km * yakitUcreti) * 3;
+
+            document.getElementById("sonuc").innerHTML = "Almaniz gereken ucret: " + sonuc.toFixed(2) + " TL";
+        }
+
+        // Kilometre veya yakıt ücreti alanlarına herhangi bir giriş yapıldığında otomatik olarak hesaplamayı yapın
+        document.getElementById("km").addEventListener("input", hesapla);
+        document.getElementById("yakitUcreti").addEventListener("input", hesapla);
+    </script>
+</body>
+</html>
